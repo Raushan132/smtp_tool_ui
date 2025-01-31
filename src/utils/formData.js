@@ -3,14 +3,14 @@ const customFormData =[
         name: 'SMTP Server',
         type: 'text',
         value:'',
-        data_bind:'smptServer',
+        data_bind:'smtpServer',
         id: 1,
     },
     {
         name: 'Port',
         type: 'number',
         value:'',
-        data_bind:'port',
+        data_bind:'smtpPort',
         id: 2
     },
     {

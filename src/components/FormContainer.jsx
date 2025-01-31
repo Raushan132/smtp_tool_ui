@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import customFormData from '../utils/formData';
 import axios from 'axios';
+import BaseUrl from '../utils/baseUrl';
+
 
 const FormContainer = () => {
   
@@ -19,16 +21,24 @@ const FormContainer = () => {
        
     }
 
-    const handleSubmit = async ()=>{
-        const data= formData.map(d=>({[d.data_bind]:d.value}))
-        try{
-            const resp=  await axios.post(`${BaseUrl}/smpt`,data)
-            console.log(resp)
-        }catch(err){
-            console.log(err)
+    const handleSubmit = async () => {
+        const data = {};
+        
+        formData.forEach(d => {
+
+            data[d.data_bind] = d.value;
+            
+        });
+        console.log(data);
+        data.port=parseInt(data.port)
+        try {
+            const resp = await axios.post(`${BaseUrl}/smtp`, data);
+            console.log(resp);
+        } catch (err) {
+            console.log(err);
         }
-      
-    }
+    };
+    
 
     return (
         <>
