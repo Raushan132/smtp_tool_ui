@@ -3,6 +3,7 @@ import customFormData from '../utils/formData';
 import axios from 'axios';
 import BaseUrl from '../utils/baseUrl';
 import { MdClose } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 
 const FormContainer = () => {
@@ -68,7 +69,7 @@ const FormContainer = () => {
             <div className='flex flex-col gap-5 justify-center items-center'>
                 <div className='self-start flex gap-2 items-center ' >
                     <div >Generate Gmail App Password<span className='text-blue-400'>*</span></div>
-                    <div className='px-4 py-2 bg-red-500 text-white font-bold cursor-pointer'>Generate</div>
+                    <Link to={"https://myaccount.google.com/apppasswords"} className='px-4 py-2 bg-red-500 text-white font-bold cursor-pointer'>Generate</Link>
                 </div>
                 {
                     formData.map(data => {
